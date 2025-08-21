@@ -80,7 +80,7 @@ services:
   - `env_file: - ./chatbot/.env`: **(Required)** This crucial line loads the `GOOGLE_GEMINI_API_KEY` from the `.env` file into the backend container.
 - **`chatbot-front`**:
   - `build: ./chatbot-front`: Builds the React application using its own `Dockerfile`.
-  - `ports: - "5713:5713"`: Makes the frontend web server accessible on **port 5713** of your machine.
+  - `ports: - "5173:5173"`: Makes the frontend web server accessible on **port 5713** of your machine.
   - `depends_on: - chatbot`: Ensures the `chatbot` backend container starts before this one.
 
 ---
