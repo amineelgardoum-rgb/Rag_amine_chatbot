@@ -1,3 +1,4 @@
+
 # Amine's AI Chatbot with RAG
 
 This project is a fully functional, containerized chatbot application that leverages the power of **Retrieval-Augmented Generation (RAG)**. It provides an interactive web interface where users can ask questions and receive intelligent, context-aware answers based on a specific knowledge base about Amine.
@@ -10,7 +11,7 @@ The entire application is built with a modern, production-ready tech stack, feat
 
 ---
 
-## structure
+## Application Structure
 
 ![Chatbot structure](./chatbot_image.png "chatbot structure")
 
@@ -44,6 +45,42 @@ The application follows a robust client-server model, with each part running in 
 | **Frontend**      | ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white) *(for serving)* |
 | **Backend**       | ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)                                                                                                                 |
 | **Orchestration** | ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)                                                                                                                                                                                                                        |
+
+---
+
+## 🐳 Docker Compose Setup
+
+The `docker-compose.yml` file is the heart of the application's orchestration. It defines the services, networks, and volumes required to run the entire stack.
+
+Here is a breakdown of the configuration:
+
+```yaml
+version: '3.8'
+
+services:
+  # The FastAPI Backend Service
+  chatbot:
+    build: ./chatbot
+    ports:
+      - "8000:8000"
+  # The React Frontend Service
+  chatbot-front:
+    build: ./chatbot-front
+    ports:
+      - "5713:5713" 
+    depends_on:
+      - chatbot # Ensures that the backend service starts before the frontend
+```
+
+- **`services`**: Defines the individual containers that make up the application.
+- **`chatbot`**:
+  - `build: ./chatbot`: Tells Docker Compose to build an image using the `Dockerfile` located in the `chatbot` folder.
+  - `ports: - "8000:8000"`: Exposes the FastAPI application to port 8000 on your local machine.
+  - `env_file: - ./chatbot/.env`: **(Required)** This crucial line loads the `GOOGLE_GEMINI_API_KEY` from the `.env` file into the backend container.
+- **`chatbot-front`**:
+  - `build: ./chatbot-front`: Builds the React application using its own `Dockerfile`.
+  - `ports: - "5713:5713"`: Makes the frontend web server accessible on **port 5713** of your machine.
+  - `depends_on: - chatbot`: Ensures the `chatbot` backend container starts before this one.
 
 ---
 
@@ -90,7 +127,7 @@ Follow these instructions to get the project up and running on your local machin
    cd Rag_amine_chatbot
    ```
 2. **Set up Backend Environment Variables (Crucial Step):**
-   The backend needs an API key to connect to a Large Language Model (e.g., OpenAI, Hugging Face, etc.).
+   The backend needs an API key to connect to the Google Gemini LLM.
 
    - Navigate to the `chatbot` directory: `cd chatbot`
    - Create a new file named `.env`: `touch .env`
@@ -100,7 +137,7 @@ Follow these instructions to get the project up and running on your local machin
      ```
    - **Important:** Return to the root directory before running docker-compose: `cd ..`
 3. **Customize the Knowledge Base (Optional):**
-   Open `chatbot/rag_text_info.txt` and add or modify the text content. This is the information the chatbot will use to answer questions about Amine.
+   Open `chatbot/rag_text_info.txt` and add or modify the text content.
 
 ### Running the Application
 
@@ -110,9 +147,6 @@ Launch the entire application stack with a single command from the root director
 docker-compose up --build -d
 ```
 
-- `--build`: Builds the Docker images for both the frontend and backend if they don't exist or have changed.
-- `-d`: Runs the containers in detached mode (in the background).
-
 To check if the services are running correctly:
 
 ```bash
@@ -121,7 +155,7 @@ docker-compose ps
 
 ### Accessing the Application
 
-- **Frontend (Chat Interface):** Open your browser and navigate to **[http://localhost:5173](http://localhost:5173)** (or whichever port you've mapped for the frontend in `docker-compose.yml`).
+- **Frontend (Chat Interface):** Open your browser and navigate to **[http://localhost:5713](http://localhost:5713)**
 - **Backend (API Docs):** The API documentation is available at **[http://localhost:8000/docs](http://localhost:8000/docs)**.
 
 ---
