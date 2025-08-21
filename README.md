@@ -13,6 +13,8 @@ The entire application is built with a modern, production-ready tech stack, feat
 ![Chatbot Interface](./image.png "chatbot interface")
 
 ---
+## structure
+![Chatbot structure](./chatbot_image.png "chatbot structure")
 
 ## ✨ Key Features
 
