@@ -21,7 +21,7 @@ app.add_middleware(
     allow_headers=["*"]
 )
 @app.get("/")
-def sucess():
+def success():
     return {"status":"200 OK","message":"the Api is working"}
 @app.get("/ask")
 async def message(query:str):
