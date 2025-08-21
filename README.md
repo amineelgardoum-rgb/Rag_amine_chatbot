@@ -10,7 +10,7 @@ The entire application is built with a modern, production-ready tech stack, feat
 
 ## 🖼️ Project Showcase
 
-![Chatbot Interface](./image.png "chatbot interface")
+![Chatbot Interface](./screenshot.png "chatbot interface")
 
 ---
 ## structure
