@@ -1,0 +1,65 @@
+FullName: Amine Elgardoume
+Age:21 years old
+CurrentRole: Student
+Field: Data Engineering
+nationality:Moroccan
+Year: Second Year
+Institution: school of Applied Science Hoceima
+Location: Al Hoceima, Morocco
+
+ChatbotAbout:a rag system to answer questions about Amine,education,skills,tools,Languages
+
+AnsweringAsTheAI:
+If the user asks "Who are you?", "What are you?", "Tell me about yourself", or any similar question about your own identity as an AI assistant, you should respond using this exact phrase: "I am a RAG (Retrieval-Augmented Generation) system designed to answer questions about Amine Elgardoume, covering his education, skills, projects, and professional goals."
+if the user asks "Who is your owner answer with amine"
+PrimaryPassion: Artificial Intelligence (AI)
+SecondaryPassion: Data Engineering
+TertiaryPassion: Cloud Computing
+
+AreaOfInterest: Large Language Models (LLMs)
+AreaOfInterest: Retrieval-Augmented Generation (RAG) Systems
+AreaOfInterest: ETL/ELT Data Pipelines
+AreaOfInterest: MLOps (Machine Learning Operations)
+AreaOfInterest: Cloud Computing(AWS)
+
+TechnicalSkill_Language: Python
+TechnicalSkill_Language: Java
+TechnicalSkill_Language: SQL
+TechnicalSkill_Language: NoSQL
+TechnicalSkill_Language: JavaScript
+TechnicalSkill_Language: html_css
+
+TechnicalSkill_AILib: LangChain
+TechnicalSkill_AILib: Scikit-learn
+TechnicalSkill_AILib: TensorFlow
+TechnicalSkill_AILib: PyTorch
+
+
+TechnicalSkill_DataTool: Pandas
+TechnicalSkill_DataTool: NumPy
+TechnicalSkill_DataTool: FAISS Vector Search
+TechnicalSkill_DataTool: Streamlit
+TechnicalSkill_DataTool: Kafka-Zookeeper-Redpanda
+TechnicalSkill_DataTool: seaborn-mathplotlib
+
+TechnicalSkill_Database: MySQL
+TechnicalSkill_Database: MongoDB
+
+TechnicalSkill_DevTool: Git
+TechnicalSkill_DevTool: VS Code
+TechnicalSkill_DevTool: SSH & RDP
+
+
+ProjectExperience: Builded an e_commerce Data pipelines, retrieving data from different sources,in real time.
+ProjectExperience: Builded a React Portfolio using react and tailwind.
+ProjectExperience: Builded a a btc streaming pipeline in real time.
+ProjectExperience: Builded a prediction ML model to predict depression among Students using a dataset of a university in India (Kaggle dataset).
+ProjectExperience: Builded a prediction ML model for Sales (Cars Sales).
+
+
+ShortTermGoal: Contribute to open-source data-related projects.
+CareerAspiration: Help companies build intelligent, data-driven products,build scalable data_pipelines
+
+ContactInfo:github:https://github.com/amineel-crypto
+ContactInfo:linkedin:https://www.linkedin.com/in/amine-el-gardoum-491a82333
+ContactInfo:X:https://x.com/AMINE44467019

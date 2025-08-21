@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
+
+/* --- Keyframes for the animated scanline background --- */
+@keyframes scanline {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+body {
+  font-family: 'Fira Code', monospace;
+  background-color: #000000;
+  color: #00ff41;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* --- Animated background styles --- */
+  background-image: linear-gradient(
+    0deg,
+    rgba(0, 255, 65, 0.15) 1px,
+    transparent 1px
+  );
+  background-size: 100% 4px;
+  animation: scanline 10s linear infinite; /* Adjust time for speed */
+}
+
+.chat-container {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 10, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.chat-header {
+  background-color: #00ff41;
+  color: #000000;
+  padding: 0.75rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #00ff41;
+  user-select: none;
+}
+
+.chat-header h1 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  text-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+
+.message-area {
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: #00ff41 #0a1a0a;
+}
+.message-area::-webkit-scrollbar {
+  width: 8px;
+}
+.message-area::-webkit-scrollbar-track {
+  background: #0a1a0a;
+}
+.message-area::-webkit-scrollbar-thumb {
+  background-color: #00ff41;
+  border-radius: 4px;
+  border: 1px solid #000;
+}
+
+.message {
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(0, 255, 65, 0.5);
+  background-color: rgba(0, 50, 0, 0.3);
+  max-width: 85%;
+  line-height: 1.5;
+  text-shadow: 0 0 5px #00ff41;
+  border-radius: 0;
+  font-size: 0.9rem;
+}
+
+.message.user {
+  align-self: flex-end;
+  border-color: rgba(0, 255, 255, 0.5);
+  color: #00ffff;
+  text-shadow: 0 0 5px #00ffff;
+}
+.message.user::before {
+  content: '[USER]> ';
+  font-weight: 700;
+  color: #00ffff;
+}
+
+.message.bot {
+  align-self: flex-start;
+}
+.message.bot::before {
+  content: '[BOT_RESPONSE]> ';
+  font-weight: 700;
+  color: #00ff41;
+}
+
+.message p {
+  margin: 0;
+  display: inline;
+}
+
+.input-form {
+  display: flex;
+  padding: 1rem;
+  border-top: 1px solid #00ff41;
+  background-color: #001a05;
+  gap: 1rem;
+}
+
+.input-form input {
+  flex-grow: 1;
+  border: none;
+  background-color: #000;
+  color: #00ff41;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-family: 'Fira Code', monospace;
+  caret-color: #00ff41;
+  text-shadow: 0 0 5px #00ff41;
+  border-radius: 0;
+  border-bottom: 1px solid #00ff41;
+  transition: all 0.3s ease;
+}
+
+.input-form input::placeholder {
+  color: rgba(0, 255, 65, 0.6);
+  font-style: italic;
+}
+
+.input-form input:focus {
+  outline: none;
+  border-bottom: 1px solid #00ffff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.input-form button {
+  background-color: transparent;
+  color: #00ff41;
+  border: 1px solid #00ff41;
+  border-radius: 0;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: 'Fira Code', monospace;
+  text-transform: uppercase;
+  transition: background-color 0.3s, color 0.3s, text-shadow 0.3s;
+  letter-spacing: 1px;
+}
+
+.input-form button:hover, .input-form button:focus {
+  background-color: #00ff41;
+  color: #000;
+  text-shadow: 0 0 5px #000;
+  box-shadow: 0 0 10px #00ff41;
+}
+
+.input-form button:disabled {
+  border-color: #ff0037;
+  color: #ff0037;
+  text-shadow: 0 0 5px #ff0037;
+  cursor: not-allowed;
+  background-color: transparent;
+}
+
+
+/* --- Media Query for PC and Tablet Screens --- */
+@media only screen and (min-width: 768px) {
+  .chat-container {
+    max-width: 800px; /* Adjusted width for better PC view */
+    height: 90vh;
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.4), 0 0 5px rgba(0, 255, 65, 1) inset;
+    border: 1px solid #00ff41;
+    backdrop-filter: blur(3px);
+  }
+
+  .chat-container:hover {
+    box-shadow: 0 0 25px rgba(0, 255, 65, 0.6), 0 0 7px rgba(0, 255, 65, 1) inset;
+  }
+
+  .message {
+    font-size: 1rem; /* Slightly larger font on bigger screens */
+  }
+}
