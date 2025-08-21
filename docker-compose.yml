@@ -1,5 +1,12 @@
 services:
   chatbot:
    build: ./chatbot
-
-
+   ports:
+    - "8000:8000"
+  chatbot-front:
+   build: ./chatbot-front
+   ports:
+    - "5713:5713"
+   depends_on:
+    - chatbot
+   
