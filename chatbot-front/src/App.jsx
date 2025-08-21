@@ -27,7 +27,7 @@ function App() {
 
     try {
       const encodedQuery = encodeURIComponent(currentInput);
-      const url = `http://0.0.0.0:8000/ask?query=${encodedQuery}`;
+      const url = `http://127.0.0.1:8000/ask?query=${encodedQuery}`;
       const response = await fetch(url);
 
       if (!response.ok) {
