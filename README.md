@@ -4,12 +4,6 @@ This project is a fully functional, containerized chatbot application that lever
 
 The entire application is built with a modern, production-ready tech stack, featuring a containerized **React/Vite** frontend served by a **Node.js** server, and a **Python/FastAPI** backend, all orchestrated seamlessly with **Docker Compose**.
 
-```
-
-```
-
----
-
 ## 🖼️ Project Showcase
 
 ![Chatbot Interface](./screenshot.png "chatbot interface")
