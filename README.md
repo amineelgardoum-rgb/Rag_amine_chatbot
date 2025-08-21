@@ -61,11 +61,15 @@ services:
     build: ./chatbot
     ports:
       - "8000:8000"
+    # Note: env_file is needed here to load the API key
+    env_file:
+      - ./chatbot/.env
+
   # The React Frontend Service
   chatbot-front:
     build: ./chatbot-front
     ports:
-      - "5713:5713" 
+      - "5713:5713" # The host port is now 5713
     depends_on:
       - chatbot # Ensures that the backend service starts before the frontend
 ```
