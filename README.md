@@ -1,19 +1,23 @@
-
-
 # Amine's AI Chatbot with RAG
 
 This project is a fully functional, containerized chatbot application that leverages the power of **Retrieval-Augmented Generation (RAG)**. It provides an interactive web interface where users can ask questions and receive intelligent, context-aware answers based on a specific knowledge base about Amine.
 
 The entire application is built with a modern, production-ready tech stack, featuring a containerized **React/Vite** frontend served by a **Node.js** server, and a **Python/FastAPI** backend, all orchestrated seamlessly with **Docker Compose**.
 
+```
+
+```
+
 ---
 
 ## 🖼️ Project Showcase
 
-![Chatbot Interface](./image.png "chatbot interface")
+![Chatbot Interface](./screenshot.png "chatbot interface")
 
 ---
+
 ## structure
+
 ![Chatbot structure](./chatbot_image.png "chatbot structure")
 
 ## ✨ Key Features
