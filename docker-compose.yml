@@ -11,4 +11,3 @@ services:
     - "5713:5713"
    depends_on:
     - chatbot
-   
