@@ -3,6 +3,8 @@ services:
    build: ./chatbot
    ports:
     - "8000:8000"
+   env_file:
+    - ./chatbot/.env
   chatbot-front:
    build: ./chatbot-front
    ports:
