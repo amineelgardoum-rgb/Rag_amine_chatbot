@@ -131,7 +131,7 @@ Follow these instructions to get the project up and running on your local machin
    The backend needs an API key to connect to the Google Gemini LLM.
 
    - Navigate to the `chatbot` directory: `cd chatbot`
-   - Create a new file named `.env`: `touch .env`
+   - Create a new file named `.env`: `touch .env in linux bash. in powershell ni .env`
    - Open the `.env` file and add your API key. For example:
      ```env
      GOOGLE_GEMINI_API_KEY="YourSecretApiKeyGoesHere"
