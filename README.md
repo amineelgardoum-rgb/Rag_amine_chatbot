@@ -55,8 +55,6 @@ The `docker-compose.yml` file is the heart of the application's orchestration. I
 Here is a breakdown of the configuration:
 
 ```yaml
-version: '3.8'
-
 services:
   # The FastAPI Backend Service
   chatbot:
