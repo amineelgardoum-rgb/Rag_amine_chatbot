@@ -15,7 +15,7 @@ const MatrixBackground = () => {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    const binary = "01)(_+?'|}|{[]$#@!^&";
+    const binary = "01)(_+?'|}|{[]$#@!^&新字体漢字学年別漢字配当表";
     const fontSize = 20;
     const columns = Math.floor(canvas.width / fontSize);
     const drops = Array(columns).fill(1);
@@ -24,7 +24,7 @@ const MatrixBackground = () => {
       ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = "green"; 
+      ctx.fillStyle = "#00FF00"; 
       ctx.font = `${fontSize}px monospace`;
 
       for (let i = 0; i < drops.length; i++) {
