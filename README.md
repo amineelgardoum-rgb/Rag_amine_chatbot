@@ -47,6 +47,50 @@ The application follows a robust client-server model, with each part running in 
 
 ---
 
+
+
+## ⚙️ Environment Configuration (Crucial Step)
+
+**Before running the application, you must provide your Google Gemini API key. This is done by creating an environment file.**
+
+* **Navigate into the backend directory:**
+
+  ```
+  cd chatbot
+  ```
+* **Create the** **.env** **file:**
+
+  * **On** **Linux** **or** **macOS**:
+
+  ```
+  touch .env
+  ```
+
+  * **On** **Windows (PowerShell)**:
+
+  ```
+  ni .env
+  ```
+
+  **(Alternatively, you can create the file manually in your code editor.)**
+* **Add your API Key:**
+  Open the newly created **.env** **file and add the following line, replacing** **"YourSecretApiKeyGoesHere"** **with your actual Google Gemini API key:**
+
+  ```
+  GOOGLE_GEMINI_API_KEY="YourSecretApiKeyGoesHere"
+  ```
+* **Return to the root directory:**
+
+  ```
+  cd ..
+  ```
+
+**This** **.env** **file is loaded by Docker Compose and securely injects your API key into the backend container, so your application can authenticate with the LLM.**
+
+---
+
+
+
 ## 🐳 Docker Compose Setup
 
 The `docker-compose.yml` file is the heart of the application's orchestration. It defines the services, networks, and volumes required to run the entire stack.

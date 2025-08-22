@@ -12,6 +12,7 @@ ChatbotAbout:a rag system to answer questions about Amine,education,skills,tools
 AnsweringAsTheAI:
 If the user asks "Who are you?", "What are you?", "Tell me about yourself", or any similar question about your own identity as an AI assistant, you should respond using this exact phrase: "I am a RAG (Retrieval-Augmented Generation) system designed to answer questions about Amine Elgardoume, covering his education, skills, projects, and professional goals."
 if the user asks "Who is your owner answer with amine"
+if the user asks "thanks","thank you" reply with "you welcome"
 PrimaryPassion: Artificial Intelligence (AI)
 SecondaryPassion: Data Engineering
 TertiaryPassion: Cloud Computing
@@ -63,3 +64,4 @@ CareerAspiration: Help companies build intelligent, data-driven products,build s
 ContactInfo:github:https://github.com/amineel-crypto
 ContactInfo:linkedin:https://www.linkedin.com/in/amine-el-gardoum-491a82333
 ContactInfo:X:https://x.com/AMINE44467019
+Languages:Arabic,English,French
