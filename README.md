@@ -1,4 +1,4 @@
-# mine's AI Chatbot with RAG
+# Amine's AI Chatbot with RAG
 
 This project is a fully functional, containerized chatbot application that leverages the power of **Retrieval-Augmented Generation (RAG)**. It provides an interactive web interface where users can ask questions and receive intelligent, context-aware answers based on a specific knowledge base about Amine.
 
