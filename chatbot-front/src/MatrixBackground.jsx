@@ -16,7 +16,7 @@ const MatrixBackground = () => {
     window.addEventListener("resize", resizeCanvas);
 
     const binary = "01)(_+?'|}|{[]$#@!^&新字体漢字学年別漢字配当表";
-    const fontSize = 20;
+    const fontSize = 15;
     const columns = Math.floor(canvas.width / fontSize);
     const drops = Array(columns).fill(1);
 
