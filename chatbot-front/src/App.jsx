@@ -1,11 +1,20 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./App.css"; 
+import "./App.css";
 import MatrixBackground from "./MatrixBackground";
+
 function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
+  useEffect(() => {
+    setMessages([
+      {
+        sender: "bot",
+        text: "Hello! I am Amine's AI assistant. Ask me anything about him.",
+      },
+    ]);
+  }, []);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -21,17 +30,19 @@ function App() {
 
     const userMessage = { sender: "user", text: input };
     setMessages((prev) => [...prev, userMessage]);
-    const currentInput = input; 
+    const currentInput = input;
     setInput("");
     setIsLoading(true);
 
     try {
       const encodedQuery = encodeURIComponent(currentInput);
-      const url = `http://127.0.0.1:8000/ask?query=${encodedQuery}`;
+      const url = `/api/ask?query=${encodedQuery}`;
       const response = await fetch(url);
 
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error(
+          `Network response was not ok (status: ${response.status})`
+        );
       }
 
       const data = await response.json();
@@ -41,7 +52,7 @@ function App() {
       console.error("Failed to get response:", error);
       const errorMessage = {
         sender: "bot",
-        text: "Sorry, I ran into an error. Please try again.",
+        text: "Sorry, I ran into an error. Please check the connection to the server and try again.",
       };
       setMessages((prev) => [...prev, errorMessage]);
     } finally {
@@ -51,12 +62,12 @@ function App() {
 
   return (
     <>
-    <MatrixBackground />
+      <MatrixBackground />
       <div className="chat-container">
-        <div className="chat-header">
-          <h1>Amine's Chatbot</h1>
-        </div>
-        <div className="message-area">
+        <header className="chat-header">
+          <h1>Amine's AI Chatbot</h1>
+        </header>
+        <main className="message-area">
           {messages.map((msg, index) => (
             <div key={index} className={`message ${msg.sender}`}>
               <p>{msg.text}</p>
@@ -64,25 +75,34 @@ function App() {
           ))}
           {isLoading && (
             <div className="message bot">
-              <p>
-                <i>Thinking...</i>
+              <p className="thinking">
+                <span>.</span>
+                <span>.</span>
+                <span>.</span>
               </p>
             </div>
           )}
           <div ref={messagesEndRef} />
-        </div>
-        <form className="input-form" onSubmit={handleSend}>
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Ask me.."
-            disabled={isLoading}
-          />
-          <button type="submit" disabled={isLoading}>
-            Send
-          </button>
-        </form>
+        </main>
+        <footer className="input-form-container">
+          <form className="input-form" onSubmit={handleSend}>
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="Ask me anything..."
+              disabled={isLoading}
+              aria-label="Chat input"
+            />
+            <button
+              type="submit"
+              disabled={isLoading}
+              aria-label="Send message"
+            >
+              Send
+            </button>
+          </form>
+        </footer>
       </div>
     </>
   );
