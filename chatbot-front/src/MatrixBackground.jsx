@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useState } from "react";
 const MatrixBackground = ({
   backgroundColor = "rgba(0, 0, 0, 0.1)",
   fontColor = "#009768", // The main green color
-  glowColor = "#0f0",    // The brighter green for the glow
+  glowColor = "limegreen",    // The brighter green for the glow
   headColor = "green",   // The color of the leading character
   fontSize = 20,
   characters = "01学年別漢字配当表#&*()_+",
